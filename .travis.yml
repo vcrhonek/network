@@ -6,9 +6,16 @@ python:
   - 2.7
   - 3.6
   - 3.7-dev
+services:
+  - docker
 
 install:
-  - pip install tox tox-travis
+  - pip install tox tox-travis molecule docker
 
 script:
   - tox
+  - molecule --version
+  - ansible --version
+  - molecule lint
+  - molecule syntax
+  - molecule test
