@@ -18,6 +18,7 @@ platforms:
     privileged: true
 provisioner:
   name: ansible
+  log: false
   lint:
     name: ansible-lint
   playbooks:
