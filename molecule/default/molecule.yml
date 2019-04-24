@@ -8,16 +8,17 @@ lint:
   options:
     config-file: molecule/default/yamllint.yml
 platforms:
-  - name: centos6
-    image: centos:6
+  - name: centos-6
+    image: linuxsystemroles/centos-6
     privileged: true
-  - name: centos7
-    image: vcrhonek/centos7-systemd
+  - name: centos-7
+    image: linuxsystemroles/centos-7
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
 provisioner:
   name: ansible
+  log: true
   lint:
     name: ansible-lint
   playbooks:
